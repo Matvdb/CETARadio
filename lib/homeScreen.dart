@@ -26,8 +26,6 @@ class _HomeScreenState extends State<HomeScreen> {
   String _accueil = "CETA Radio... C'est votre web radio !!!";
   final Uri _url = Uri.parse('http://www.cetaradio.fr/player/');
 
-  void _NousEcouterCETA() {}
-
   void _launchUrl() async {
     if (!await launchUrl(_url)) throw 'Could not launch $_url';
   }
@@ -38,93 +36,62 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  void _pageAccueil() {
-    setState(() {
-      _accueil = "CETA Radio";
-    });
-  }
-
-  void _retourDebut() {
-    setState(() {
-      _accueil = "Bienvenu sur l'application de CETA Radio !!";
-    });
-  }
-
-  void _retourFin() {
-    setState(() {
-      _accueil = "Bye bye bye bye ybe";
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Création de la AppBar
-      appBar: AppBar(
-        title: Row(
-          // Alignement du texte en centre de la AppBar
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Insertion de l'image par la classe Logo
-            SizedBox(
-              width: 50.0,
-              height: 50.0,
-              child: Logo(),
-            ),
-            // Insertion du titre de l'application
-            Container(
-                padding: const EdgeInsets.all(8.0),
-                child: const Text('CETA Radio')),
-          ],
-        ),
-      ),
-
       // Texte principal
-      body: Container(
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(
-          begin: Alignment.topRight,
-          end: Alignment.bottomLeft,
-          colors: [
-            Color.fromARGB(255, 25, 86, 255),
-            Color.fromARGB(255, 74, 219, 255),
-          ],
-        )),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Text(
-                _accueil,
-                textDirection: TextDirection.ltr,
-                style: const TextStyle(
-                    decoration: TextDecoration.none,
-                    color: Colors.white,
-                    fontSize: 30.0,
-                    fontFamily: 'Staatliches-Regular'),
-              ),
-            ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const CustomYoutubePLayer(
-                              "https://www.youtube.com/watch?v=oRLklKUd0hg&ab_channel=CETARadio")));
-                },
-                onLongPress: () {
-                  const Text("Chaîne YouTube de CETA Radio");
-                },
-                child: const Text("YouTube"),
-              ),
-            )
-          ],
-        ),
-      ),
-
+      appBar: AppBar(
+        centerTitle: true,
+            title: const Text("CETA Radio", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),),
+            body: Container(
+                    height: MediaQuery.of(context).size.height * 0.834,
+                    width: MediaQuery.of(context).size.width * 1,
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topRight,
+                        end: Alignment.bottomLeft,
+                        colors: [
+                        Color.fromARGB(255, 25, 86, 255),
+                        Color.fromARGB(255, 74, 219, 255),
+                        ],
+                      )),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Text(
+                            _accueil,
+                            textDirection: TextDirection.ltr,
+                            style: const TextStyle(
+                              decoration: TextDecoration.none,
+                              color: Colors.white,
+                              fontSize: 30.0,
+                              fontFamily: 'Staatliches-Regular'),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const CustomYoutubePLayer(
+                                    "https://www.youtube.com/watch?v=oRLklKUd0hg&ab_channel=CETARadio"
+                                  ),
+                                ),
+                              );
+                            },
+                            onLongPress: () {
+                              const Text("Chaîne YouTube de CETA Radio");
+                            },
+                            child: const Text("YouTube"),
+                          ),
+                        ),
+                        ],
+                      ),
+                    ),
       // BottomBar, permettant l'accès aux diverses fonctionnalitées
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
