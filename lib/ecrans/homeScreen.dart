@@ -1,17 +1,11 @@
-
-
-import 'package:ceta_radio/agenda.dart';
-import 'package:ceta_radio/info.dart';
-import 'package:ceta_radio/news.dart';
-import 'package:ceta_radio/podcasts.dart';
+import 'agenda.dart';
+import 'info.dart';
+import 'news.dart';
+import 'podcasts.dart';
 import 'package:ceta_radio/url.dart';
 import 'package:ceta_radio/youtube_player_screen.dart';
-
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import 'url.dart';
-
 import 'nousecouter.dart';
 
 
@@ -23,17 +17,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String _accueil = "CETA Radio... C'est votre web radio !!!";
+  final String _accueil = "CETA Radio... C'est votre web radio !!!";
   final Uri _url = Uri.parse('http://www.cetaradio.fr/player/');
 
   void _launchUrl() async {
     if (!await launchUrl(_url)) throw 'Could not launch $_url';
   }
 
-  void PageURL() {
+  void pageURL() {
     setState(() {
       const URLSite();
-    });
+    }); 
   }
 
   @override
@@ -41,8 +35,24 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       // Texte principal
       appBar: AppBar(
-        centerTitle: true,
-            title: const Text("CETA Radio", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),),
+            centerTitle: true,
+            title: Row(
+          // Alignement du texte en centre de la AppBar
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // Insertion de l'image par la classe Logo
+            SizedBox(
+              width: 50.0,
+              height: 50.0,
+              child: Logo(),
+            ),
+            // Insertion du titre de l'application
+            Container(
+                padding: const EdgeInsets.all(8.0),
+                child: const Text('CETA Radio')),
+          ],
+        ),
+      ), 
             body: Container(
                     height: MediaQuery.of(context).size.height * 0.834,
                     width: MediaQuery.of(context).size.width * 1,
@@ -58,15 +68,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Align(
-                          alignment: Alignment.bottomCenter,
+                        Container(
+                          alignment: Alignment.center,
+                          height: MediaQuery.of(context).size.height * 0.20,
+                          width: MediaQuery.of(context).size.width,
                           child: Text(
                             _accueil,
                             textDirection: TextDirection.ltr,
                             style: const TextStyle(
                               decoration: TextDecoration.none,
                               color: Colors.white,
-                              fontSize: 30.0,
+                              fontSize: 25.0,
                               fontFamily: 'Staatliches-Regular'),
                           ),
                         ),
@@ -237,6 +249,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
+      
     );
   }
 }

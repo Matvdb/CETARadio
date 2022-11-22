@@ -1,18 +1,11 @@
-
-
-import 'package:ceta_radio/adlm.dart';
-
-import 'package:ceta_radio/touzazimut.dart';
+import 'package:ceta_radio/info_emissions/adlm.dart';
+import 'package:ceta_radio/info_emissions/touzazimut.dart';
 import 'package:flutter/material.dart';
-
-import 'cetacovershow.dart';
-import 'cetalentdcheznous.dart';
-import 'cetatoideparler.dart';
-import 'letop.dart';
-
-import 'nas.dart';
-
-
+import '../info_emissions/cetacovershow.dart';
+import '../info_emissions/cetalentdcheznous.dart';
+import '../info_emissions/cetatoideparler.dart';
+import '../info_emissions/letop.dart';
+import '../info_emissions/nas.dart';
 import 'news.dart';
 import 'info.dart';
 import 'nousecouter.dart';

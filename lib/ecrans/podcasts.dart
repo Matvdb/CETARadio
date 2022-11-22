@@ -1,11 +1,11 @@
 
-import 'package:ceta_radio/podcasts_NAS.dart';
-import 'package:ceta_radio/podcasts_adlm.dart';
-import 'package:ceta_radio/podcasts_cetacovershow.dart';
-import 'package:ceta_radio/podcasts_cetatoideparler.dart';
-import 'package:ceta_radio/podcasts_letop.dart';
-import 'package:ceta_radio/podcasts_touzazimut.dart';
-import 'package:ceta_radio/podcats_cetalent.dart';
+import 'package:ceta_radio/podcasts_extends/podcasts_NAS.dart';
+import 'package:ceta_radio/podcasts_extends/podcasts_adlm.dart';
+import 'package:ceta_radio/podcasts_extends/podcasts_cetacovershow.dart';
+import 'package:ceta_radio/podcasts_extends/podcasts_cetatoideparler.dart';
+import 'package:ceta_radio/podcasts_extends/podcasts_letop.dart';
+import 'package:ceta_radio/podcasts_extends/podcasts_touzazimut.dart';
+import 'package:ceta_radio/podcasts_extends/podcats_cetalent.dart';
 import 'package:flutter/material.dart';
 
 import 'news.dart';

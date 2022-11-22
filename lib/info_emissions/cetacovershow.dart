@@ -43,7 +43,7 @@ class _CETACoverShowState extends State<CETACoverShow> {
       ),
 
       // Texte principal
-      body: Container(
+      body:SingleChildScrollView(scrollDirection: Axis.vertical, child:Container(
         decoration: const BoxDecoration(
             gradient: LinearGradient(
           begin: Alignment.topRight,
@@ -147,6 +147,7 @@ class _CETACoverShowState extends State<CETACoverShow> {
                 )),
           ],
         ),
+      ),
       ),
     );
   }

@@ -1,7 +1,4 @@
-
-import 'package:ceta_radio/homeScreen.dart';
-import 'package:ceta_radio/splashScreen.dart';
-
+import 'package:ceta_radio/splashScreen/splashScreen.dart';
 import 'package:flutter/material.dart';
 
 
@@ -20,10 +17,11 @@ class MyApp extends StatelessWidget {
       title: 'CETA Radio',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        useMaterial3: false,
+        primaryColor: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const MyHomePage(
-      ),
+      home: const MyHomePage(),
     );
   }
 }
