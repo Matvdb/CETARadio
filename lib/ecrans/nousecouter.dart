@@ -87,7 +87,9 @@ class _NousEcouterState extends State<NousEcouter> {
       ),
 
       // Texte principal
-      body: Container(
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical, 
+        child: Container(
         decoration: const BoxDecoration(
             gradient: LinearGradient(
           begin: Alignment.topRight,
@@ -168,15 +170,15 @@ class _NousEcouterState extends State<NousEcouter> {
                      await audioPlayer.pause();
                 
                   } else {
-                    String url = "https://manager8.streamradio.fr:2675/stream";
+                    String url = "www.cetaradio.fr/player";
                      await audioPlayer.play(url);
-               
                   }
                 },
               ),
             ),
           ],
         ),
+      ),
       ),
 
       // BottomBar, permettant l'accès aux diverses fonctionnalitées

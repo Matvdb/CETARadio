@@ -1,4 +1,5 @@
 
+import 'package:ceta_radio/info_emissions/letop.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -11,7 +12,7 @@ class Podcastsletop extends StatefulWidget {
 }
 
 class _PodcastsletopState extends State<Podcastsletop> {
-  String _accueil = "Quartiers d'été - Harnes en Fêtes";
+  final String _accueil = "Le Top";
   final Uri _url = Uri.parse('http://www.cetaradio.fr/player/');
 
   
@@ -56,7 +57,13 @@ class _PodcastsletopState extends State<Podcastsletop> {
         child: Column(
         
           children: [
-            SizedBox(width: 500, height: 450,child:LogoHarnesFete(),),
+            const SizedBox(
+              width: 300, 
+              height: 300,
+              child:Image(
+                image: AssetImage("assets/images/LeTop.png")
+              ),
+            ),
             Align(
               alignment: Alignment.bottomLeft,
               child: Text(
@@ -66,18 +73,14 @@ class _PodcastsletopState extends State<Podcastsletop> {
                     decoration: TextDecoration.none,
                     color: Colors.black,
                     fontSize: 20.0,
-                    fontFamily: 'Staatliches-Regular'),
+                    fontFamily: 'Staatliches-Regular',
+                  ),
               ),
             ),
-            Row(children: const [
-              
-           Align(
-           
-           ),
-           
-           Align(
-            
-           ),
+            Row(
+              children: const [
+                Align(),
+                Align(),
            ],
            ),
            

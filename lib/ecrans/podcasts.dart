@@ -295,7 +295,9 @@ class CETAlent extends StatelessWidget {
       onTap: (){
         Navigator.push(context, MaterialPageRoute(builder: (context)=>PodcastsCETAlent(title: "CETATALENT dChez Nous")));
       },
-    child :Card(
+    child : SingleChildScrollView(
+      scrollDirection: Axis.horizontal, 
+      child: Card(
         margin: EdgeInsets.all(8),
         elevation: 8,
         child: Row(
@@ -317,7 +319,7 @@ class CETAlent extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
             ),
           ],
-        )));
+        ))),);
   }
 }
 

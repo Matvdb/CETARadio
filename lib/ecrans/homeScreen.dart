@@ -1,3 +1,8 @@
+import 'dart:developer';
+
+import 'package:flutter/services.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+
 import 'agenda.dart';
 import 'info.dart';
 import 'news.dart';
@@ -19,6 +24,20 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final String _accueil = "CETA Radio... C'est votre web radio !!!";
   final Uri _url = Uri.parse('http://www.cetaradio.fr/player/');
+  late YoutubePlayerController _controller;
+  late TextEditingController _idController;
+  late TextEditingController _seekToController;
+  late YoutubeMetaData _videoMetaData;
+  late PlayerState _playerState;
+  double _volume = 100;
+  bool _muted = false;
+  bool _isPlayerReady = false;
+
+  final List<String> _ids = [
+    "https://www.youtube.com/watch?v=oRLklKUd0hg&ab_channel=CETARadio",
+  ];
+
+
 
   void _launchUrl() async {
     if (!await launchUrl(_url)) throw 'Could not launch $_url';
@@ -28,6 +47,38 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       const URLSite();
     }); 
+  }
+
+
+@override
+  void initState() {
+    super.initState();
+    _controller = YoutubePlayerController(
+      initialVideoId: _ids.first,
+      flags: const YoutubePlayerFlags(
+        mute: false,
+        autoPlay: true,
+        disableDragSeek: false,
+        loop: false,
+        isLive: true,
+        forceHD: false,
+        enableCaption: true,
+        showLiveFullscreenButton: false,
+      ),
+    )..addListener(listener);
+    _idController = TextEditingController();
+    _seekToController = TextEditingController();
+    _videoMetaData = const YoutubeMetaData();
+    _playerState = PlayerState.unknown;
+  }
+
+  void listener() {
+    if (_isPlayerReady && mounted && !_controller.value.isFullScreen) {
+      setState(() {
+        _playerState = _controller.value.playerState;
+        _videoMetaData = _controller.metadata;
+      });
+    }
   }
 
   @override
@@ -82,6 +133,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontFamily: 'Staatliches-Regular'),
                           ),
                         ),
+                        
+
                         Align(
                           alignment: Alignment.bottomCenter,
                           child: ElevatedButton(
@@ -101,6 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: const Text("YouTube"),
                           ),
                         ),
+                        Padding(padding: EdgeInsets.all(8)),
                         ],
                       ),
                     ),

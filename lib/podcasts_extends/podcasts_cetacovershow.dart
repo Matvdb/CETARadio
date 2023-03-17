@@ -11,7 +11,7 @@ class PodcastsCETACoverShow extends StatefulWidget {
 }
 
 class _PodcastsCETACoverShowState extends State<PodcastsCETACoverShow> {
-  String _accueil = "Quartiers d'été - Harnes en Fêtes";
+  String _accueil = "CETA Cover Show";
   final Uri _url = Uri.parse('http://www.cetaradio.fr/player/');
 
   
@@ -49,14 +49,17 @@ class _PodcastsCETACoverShowState extends State<PodcastsCETACoverShow> {
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
           colors: [
-            Color.fromARGB(255, 255, 255, 255),
-            Color.fromARGB(255, 211, 211, 211),
+            Color.fromARGB(255, 180, 0, 159),
+            Color.fromARGB(255, 67, 64, 255),
           ],
         )),
         child: Column(
-        
           children: [
-            SizedBox(width: 500, height: 450,child:LogoHarnesFete(),),
+            SizedBox(
+              width: 300, 
+              height: 300,
+              child:LogoCETACoverShow(),
+            ),
             Align(
               alignment: Alignment.bottomLeft,
               child: Text(
@@ -66,7 +69,8 @@ class _PodcastsCETACoverShowState extends State<PodcastsCETACoverShow> {
                     decoration: TextDecoration.none,
                     color: Colors.black,
                     fontSize: 20.0,
-                    fontFamily: 'Staatliches-Regular'),
+                    fontFamily: 'Staatliches-Regular',
+                  ),
               ),
             ),
             Row(children: const [
@@ -121,6 +125,15 @@ class LogoHarnesFete extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     AssetImage assetImage = const AssetImage('assets/images/Harnes.jpg');
+    Image image = Image(image: assetImage,);
+    return Container(child: image,);
+  }
+}
+
+class LogoCETACoverShow extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    AssetImage assetImage = const AssetImage('assets/images/coverShow.png');
     Image image = Image(image: assetImage,);
     return Container(child: image,);
   }

@@ -1,4 +1,6 @@
 
+import 'package:ceta_radio/ecrans/podcasts.dart';
+import 'package:ceta_radio/info_emissions/adlm.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -11,7 +13,7 @@ class PodcastsADLM extends StatefulWidget {
 }
 
 class _PodcastsADLMState extends State<PodcastsADLM> {
-  String _accueil = "Quartiers d'été - Harnes en Fêtes";
+  final String _accueil = "Autour De La Musique";
   final Uri _url = Uri.parse('http://www.cetaradio.fr/player/');
 
   
@@ -49,14 +51,17 @@ class _PodcastsADLMState extends State<PodcastsADLM> {
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
           colors: [
-            Color.fromARGB(255, 255, 255, 255),
-            Color.fromARGB(255, 211, 211, 211),
+            Color.fromARGB(255, 110, 0, 0),
+            Color.fromARGB(255, 231, 0, 0),
           ],
         )),
         child: Column(
-        
           children: [
-            SizedBox(width: 500, height: 450,child:LogoHarnesFete(),),
+            const SizedBox(
+              width: 300, 
+              height: 300,
+              child:ADLM(),
+            ),
             Align(
               alignment: Alignment.bottomLeft,
               child: Text(

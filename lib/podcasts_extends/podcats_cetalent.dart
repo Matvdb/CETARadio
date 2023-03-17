@@ -1,4 +1,5 @@
 
+import 'package:ceta_radio/info_emissions/cetalentdcheznous.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -11,7 +12,7 @@ class PodcastsCETAlent extends StatefulWidget {
 }
 
 class _PodcastsCETAlentState extends State<PodcastsCETAlent> {
-  String _accueil = "Quartiers d'été - Harnes en Fêtes";
+  final String _accueil = "CETALENT d'Chez Nous";
   final Uri _url = Uri.parse('http://www.cetaradio.fr/player/');
 
   
@@ -49,14 +50,17 @@ class _PodcastsCETAlentState extends State<PodcastsCETAlent> {
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
           colors: [
-            Color.fromARGB(255, 255, 255, 255),
-            Color.fromARGB(255, 211, 211, 211),
+            Color.fromARGB(255, 148, 148, 0),
+            Color.fromARGB(255, 218, 255, 11),
           ],
         )),
         child: Column(
-        
           children: [
-            SizedBox(width: 500, height: 450,child:LogoHarnesFete(),),
+            const SizedBox(
+              width: 300, 
+              height: 300,
+              child:cetalent(),
+            ),
             Align(
               alignment: Alignment.bottomLeft,
               child: Text(
@@ -93,6 +97,8 @@ class _PodcastsCETAlentState extends State<PodcastsCETAlent> {
 
 // Classe de l'image 'logo', moyen plus rapide d'utilisation
 class Logo extends StatelessWidget {
+  const Logo({super.key});
+
   @override
   Widget build(BuildContext context) {
     AssetImage assetImage = const AssetImage('assets/images/logo200.jpg');
@@ -105,6 +111,8 @@ class Logo extends StatelessWidget {
 
 // Classe de l'image 'Equipe', moyen plus rapide d'utilisation
 class Equipe extends StatelessWidget {
+  const Equipe({super.key});
+
   @override
   Widget build(BuildContext context) {
     AssetImage assetImage = const AssetImage('assets/images/studio equipe.jpg');
@@ -118,6 +126,8 @@ class Equipe extends StatelessWidget {
 }
 
 class LogoHarnesFete extends StatelessWidget{
+  const LogoHarnesFete({super.key});
+
   @override
   Widget build(BuildContext context){
     AssetImage assetImage = const AssetImage('assets/images/Harnes.jpg');

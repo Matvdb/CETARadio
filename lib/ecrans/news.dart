@@ -297,7 +297,7 @@ class NezRouge extends StatelessWidget {
       onTap: (){
         Navigator.push(context, MaterialPageRoute(builder: (context)=>InfoNezRouge(title: "La Bande des Nez Rouge")));
       },
-    child :Card(
+    child : SingleChildScrollView(scrollDirection: Axis.horizontal, child: Card(
         margin: EdgeInsets.all(8),
         elevation: 8,
         child: Row(
@@ -319,7 +319,7 @@ class NezRouge extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
             ),
           ],
-        )));
+        )),));
   }
 }
 
@@ -379,7 +379,7 @@ class SalonLivreBienEtre extends StatelessWidget {
       onTap: (){
         Navigator.push(context, MaterialPageRoute(builder: (context)=>InfoSalonLBE(title: "Salon du livre et du bien être")));
       },
-    child :Card(
+    child :SingleChildScrollView(scrollDirection: Axis.horizontal, child: Card(
         margin: EdgeInsets.all(8),
         elevation: 8,
         child: Row(
@@ -401,7 +401,7 @@ class SalonLivreBienEtre extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
             ),
           ],
-        )));
+        ))));
   }
 }
 
@@ -420,7 +420,7 @@ class NezRouge2 extends StatelessWidget {
       onTap: (){
         Navigator.push(context, MaterialPageRoute(builder: (context)=>InfoNezRouge(title: "La Bande des Nez Rouge")));
       },
-    child:Card(
+    child:SingleChildScrollView(scrollDirection: Axis.horizontal, child: Card(
         margin: EdgeInsets.all(8),
         elevation: 8,
         child: Row(
@@ -445,7 +445,7 @@ class NezRouge2 extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
             ),
           ],
-        )));
+        ))));
   }
 }
 
